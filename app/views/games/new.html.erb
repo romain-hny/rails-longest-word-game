@@ -1,0 +1,14 @@
+<h1>Longest word game</h1>
+<%# generaten 10 random letters %>
+<ul class="list-inline d-flex w-50">
+  <% @list.each do |letter| %>
+    <li class="bg-primary text-white border p-4 m-2"><%= letter %></li>
+  <% end %>
+</ul>
+<h2>Try a word</h2>
+<form action="/score" method="POST" data-turbo="false">
+  <input type="text" name="word">
+  <input type="submit" value="Play">
+  <%= hidden_field_tag :letters, @list %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>

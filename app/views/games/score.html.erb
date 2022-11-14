@@ -1,0 +1,15 @@
+<h1>Result</h1>
+<%# <% if @word["name"].split.all? { |el| @word.include?(el) }%>
+<% if @user_word.length != params[:word].chars.length %>
+  <p>Sorry but <%= params[:word] %> can't be build out of <%= params[:letters].gsub(" ", ', ') %> </p>
+<% elsif @word["found"] == true %>
+  <p>"Congratulations! <%=params[:word]%> is a valid English word!" </p>
+<% else %>
+  <p>"Sorry but <strong><%=params[:word]%></strong> is not a valid English word!" </p>
+<% end %>
+<%= link_to "Play again", new_path %>
+
+<%= @current_user %>
+<%# The word can’t be built out of the original grid
+The word is valid according to the grid, but is not a valid English word
+The word is valid according to the grid and is an English word %>
